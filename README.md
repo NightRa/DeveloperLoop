@@ -5,6 +5,8 @@ Using Developer Loop,
 
 You can continiously run SML files and get their output from the REPL.
 
+It re-runs prints the results on **file save**.
+
 It's also extensible - you can easily tune it to work with other languages.
 
 ## Binary download:
