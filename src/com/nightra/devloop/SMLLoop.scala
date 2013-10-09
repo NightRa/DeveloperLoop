@@ -25,7 +25,7 @@ object SMLLoop extends App {
         sys.exit(1)
       }
 
-      case "-dir" :: path :: fileNames => (path, fileNames)
+      case "--dir" :: path :: fileNames => (path, fileNames)
       case fileNames => (sys.props("user.dir"), fileNames)
     }
 
