@@ -29,3 +29,6 @@ Example: 'week1 hw1test' will run week1.sml and then hw1test.sml in the local di
 Example: '--dir "C:/Programming Languages" week1 hw1test'
 
 will run week1.sml and then hw1test.sml in the C:/Programming Languages directory.
+
+## ChangeLog:
+### V0.2 - Added better error handling.
