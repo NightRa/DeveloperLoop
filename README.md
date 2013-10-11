@@ -1,5 +1,5 @@
-Developer Loop
-=============
+Developer Loop V0.2
+===================
 
 Using Developer Loop, 
 
