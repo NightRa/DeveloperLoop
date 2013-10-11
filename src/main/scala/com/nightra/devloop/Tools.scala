@@ -2,7 +2,7 @@
 package com.nightra.devloop
 
 import java.io.{OutputStream, InputStream, PrintWriter, ByteArrayOutputStream}
-import java.nio.file.{Paths, FileSystems, StandardWatchEventKinds, Path}
+import java.nio.file.{FileSystems, StandardWatchEventKinds, Path}
 
 object Tools {
   def executeCommand(commands: Seq[String]): String = {

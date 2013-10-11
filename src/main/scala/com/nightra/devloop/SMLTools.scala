@@ -1,7 +1,8 @@
 //Created By Ilan Godik
 package com.nightra.devloop
 
-object SMLTools  {
+object SMLTools {
+
   import Tools._
 
   def runSML(folder: String, files: Seq[String]) = {
@@ -21,9 +22,9 @@ object SMLTools  {
     result.trim
   }
 
-  def runSMLFiles(folder:String, files: Seq[String]) = {
+  def runSMLFiles(folder: String, files: Seq[String]) = {
     val withExtension = files.map(_ + ".sml")
-    val output = runSML(folder,withExtension)
+    val output = runSML(folder, withExtension)
     val processed = processOutput(output)
     processed
   }
