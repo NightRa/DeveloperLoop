@@ -36,7 +36,7 @@ object SMLTools {
       val fromOpening = s.substring(startIndex)
       // Assumption 3.
       val lines = fromOpening.lines.toSeq.dropRight(2)
-      lines.mkString("", "\r\n", "").trim
+      lines.mkString("\r\n").trim
     } else {
       // Everything is alright.
       // Assumption 4.
