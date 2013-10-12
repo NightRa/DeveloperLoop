@@ -32,5 +32,6 @@ will run week1.sml and then hw1test.sml in the C:/Programming Languages director
 
 ## ChangeLog:
 B2 - Added better error handling.
+
 B3 - Hopefully improved output cutting with errors.
 
