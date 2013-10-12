@@ -4,7 +4,7 @@ package com.nightra.devloop
 import org.scalatest.{GivenWhenThen, Matchers, FunSpec}
 
 class SMLToolsTest extends FunSpec with Matchers with GivenWhenThen {
-  describe("processOutput") {
+  describe("cutOutput") {
     it("should return only the REPL output if the code is correct") {
       pending
     }
@@ -35,10 +35,6 @@ class SMLToolsTest extends FunSpec with Matchers with GivenWhenThen {
           |hw2test.sml:28.14-28.23 Error: unbound variable or constructor: officiate
           |hw2test.sml:30.14-30.23 Error: unbound variable or constructor: officiate
           |hw2test.sml:35.16-35.25 Error: unbound variable or constructor: officiate
-          |C:\Program Files (x86)\SMLNJ\\bin\.run\run.x86-win32.exe: Fatal error -- Uncaught exception Error wi
-          |th 0
-          | raised at ../compiler/TopLevel/interact/evalloop.sml:66.19-66.27
-          |
           |
           |C:\Users\ilan3_000\Programming\Programming Languages\Homework\week2>
         """.stripMargin
@@ -70,11 +66,42 @@ class SMLToolsTest extends FunSpec with Matchers with GivenWhenThen {
         """.stripMargin
 
 
-      val processed = SMLTools.processOutput(rawOut.trim).trim
+      val processed = SMLTools.cutOutput(rawOut.trim).trim
       //      println(s"Actual: $processed")
       processed should be(theExpectedOutput.trim)
     }
+    it("should return the whole multi-line error if happened") {
+      val rawOut =
+        """
+          |Microsoft Windows [Version 6.2.9200]
+          |(c) 2012 Microsoft Corporation. All rights reserved.
+          |
+          |C:\Users\ilan3_000\Programming\Developer Loop>cd "C:\Users\ilan3_000\Programming\Programming Languages\Homework\week2"
+          |
+          |C:\Users\ilan3_000\Programming\Programming Languages\Homework\week2>sml "week2.sml" "hw2test.sml"
+          |Standard ML of New Jersey v110.76 [built: Sun Jul 14 09:59:19 2013]
+          |[opening week2.sml]
+          |week2.sml:26.5-26.24 Error: pattern and expression in val dec don't agree [tycon mismatch]
+          |  pattern:    int
+          |  expression:    string
+          |  in declaration:
+          |    name : int = "hello"
+          |
+          |C:\Users\ilan3_000\Programming\Programming Languages\Homework\week2>
+        """.stripMargin.trim
 
+      val theExpectedResult =
+        """
+          |[opening week2.sml]
+          |week2.sml:26.5-26.24 Error: pattern and expression in val dec don't agree [tycon mismatch]
+          |  pattern:    int
+          |  expression:    string
+          |  in declaration:
+          |    name : int = "hello"
+        """.stripMargin.trim
+
+      SMLTools.cutOutput(rawOut) should equal(theExpectedResult)
+    }
 
   }
 }

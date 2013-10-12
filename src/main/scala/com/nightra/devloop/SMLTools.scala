@@ -32,13 +32,11 @@ object SMLTools {
 
     // Assumption 2.
     val startIndex = s.indexOf("[opening")
-    if (s.contains("Error")) {
+    if (s.toLowerCase.contains("error")) {
       val fromOpening = s.substring(startIndex)
-      val lines = fromOpening.lines.toVector
       // Assumption 3.
-      val lastErrorLine = lines.lastIndexWhere(_.contains("Error"))
-      val needed = lines.take(lastErrorLine + 1)
-      needed.mkString("", "\r\n", "")
+      val lines = fromOpening.lines.toSeq.dropRight(2)
+      lines.mkString("", "\r\n", "")
     } else {
       // Everything is alright.
       // Assumption 4.
