@@ -1,5 +1,5 @@
-Developer Loop V0.2
-===================
+Developer Loop Build 3
+======================
 
 Using Developer Loop, 
 
@@ -31,4 +31,6 @@ Example: '--dir "C:/Programming Languages" week1 hw1test'
 will run week1.sml and then hw1test.sml in the C:/Programming Languages directory.
 
 ## ChangeLog:
-### V0.2 - Added better error handling.
+B2 - Added better error handling.
+B3 - Hopefully improved output cutting with errors.
+
