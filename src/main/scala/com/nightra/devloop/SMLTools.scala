@@ -36,13 +36,13 @@ object SMLTools {
       val fromOpening = s.substring(startIndex)
       // Assumption 3.
       val lines = fromOpening.lines.toSeq.dropRight(2)
-      lines.mkString("", "\r\n", "")
+      lines.mkString("", "\r\n", "").trim
     } else {
       // Everything is alright.
       // Assumption 4.
       val endIndex = s.lastIndexOf('-')
-      s.substring(startIndex, endIndex)
-    }.trim
+      s.substring(startIndex, endIndex).trim
+    }
   }
 
   def runSMLFiles(folder: String, files: Seq[String]) = {
